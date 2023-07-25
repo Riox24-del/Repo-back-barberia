@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
 import { Cliente } from './entities/cliente.entity';
@@ -23,8 +23,16 @@ export class ClienteService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} cliente`;
-  }
+    const Cliente=this.ClienteRepository.findOne({
+      where:{id}});
+      if(!Cliente){
+        throw new BadRequestException("Curso no encontrado");
+      }
+     return Cliente;
+    }
+  
+  
+  
 
   update(id: number, updateClienteDto: UpdateClienteDto) {
     return `This action updates a #${id} cliente`;

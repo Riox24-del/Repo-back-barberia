@@ -3,6 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClienteModule } from './cliente/cliente.module';
+import { CitasModule } from './citas/citas.module';
+
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -14,7 +16,7 @@ import { ClienteModule } from './cliente/cliente.module';
      database:'DataChangos',
     autoLoadEntities:true,
     synchronize:true
-  }), ClienteModule,],
+  }), ClienteModule, CitasModule, ],
   controllers: [AppController],
   providers: [AppService],
 })

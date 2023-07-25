@@ -14,4 +14,5 @@ export class CreateClienteDto {
     sexo:string
     @IsNumber()
     edad:number 
+   
 }

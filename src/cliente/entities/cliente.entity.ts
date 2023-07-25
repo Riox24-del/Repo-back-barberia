@@ -1,7 +1,9 @@
-import { Column, PrimaryGeneratedColumn ,Entity} from "typeorm";
+import { Column, PrimaryGeneratedColumn ,Entity, OneToMany} from "typeorm";
+import { Cita } from "src/citas/entities/cita.entity";
 
 @Entity('cliente')
 export class Cliente {
+
     @PrimaryGeneratedColumn()
     id:number
     @Column('text')
@@ -16,4 +18,7 @@ export class Cliente {
     sexo:string
     @Column('text')
     edad:number
+
+    @OneToMany(()=>Cita,(c)=>c.cliente)
+    cita:Cita[ ]
 }
