@@ -53,7 +53,13 @@ export class CitasService {
     return `This action updates a #${id} cita`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} cita`;
+  async  remove(id: number) {
+    this.citaRepository.delete(id);
+    //return `This action removes a #${id} user`;
+    const ccita=await this.citaRepository.findOne({where:{id}});
+    if (!ccita) {
+      throw new BadRequestException('No se puede eliminar');
+    }
+    return ccita;
   }
 }
