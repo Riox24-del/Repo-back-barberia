@@ -1,22 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne  } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Cliente } from 'src/cliente/entities/cliente.entity';
 @Entity('cita')
 export class Cita {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('text')
+  @Column('text',{unique:true})
   fecha: Date;
 
-  @Column('text')
+  @Column('text',{unique:true})
   hora: string;
-
-
-
 
   @Column('text')
   motivo: string;
 
-  @ManyToOne(()=>Cliente,(ci)=>ci.cita)
-  cliente:Cliente
+  @ManyToOne(() => Cliente, (ci) => ci.cita)
+  cliente: Cliente;
 }
