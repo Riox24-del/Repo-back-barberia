@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ClienteService } from './cliente.service';
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
@@ -12,7 +21,7 @@ export class ClienteController {
   create(@Body() createClienteDto: CreateClienteDto) {
     return this.clienteService.create(createClienteDto);
   }
-  
+
   @Get()
   findAll() {
     return this.clienteService.findAll();
@@ -33,9 +42,5 @@ export class ClienteController {
     return this.clienteService.remove(+id);
   }
 
-  @Post('login')
-  login(@Body()user: loginDto){
-    return this.clienteService.login(user);
-  }
-
+  
 }

@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClienteModule } from './cliente/cliente.module';
 import { CitasModule } from './citas/citas.module';
+import { RolModule } from './rol/rol.module';
 
 
 @Module({
@@ -12,11 +13,11 @@ import { CitasModule } from './citas/citas.module';
     host:'localhost',
     port:5432,
      username:'postgres',
-     password:'01010011',
+     password:'Melh180899',
      database:'DataChangos',
     autoLoadEntities:true,
     synchronize:true
-  }), ClienteModule, CitasModule, ],
+  }), ClienteModule, CitasModule, RolModule, ],
   controllers: [AppController],
   providers: [AppService],
 })
